@@ -1,5 +1,7 @@
 # Kuchnia dla T1D
 
+**<https://demifury.github.io/Cooking-for-T1D/>**
+
 Ściąga do gotowania przy cukrzycy typu 1. Indeks glikemiczny, węglowodany i cukry
 dla ponad 300 produktów, przeliczone na 100 g lub 100 ml. Do tego sosy bez cukru,
 sposoby na obniżenie IG potrawy i czytanie etykiet.
@@ -8,14 +10,16 @@ Kolor idzie za indeksem glikemicznym: zielony poniżej 50, pomarańczowy 50–69
 czerwony od 70. Próg jest ostrzejszy niż klasyfikacja medyczna, bo ma pomagać
 przy wyborze w sklepie, a nie opisywać badanie.
 
-## Jak używać
+## Na telefon
 
-Otwórz `index.html` w przeglądarce. To jeden plik bez zależności — działa
-z dysku, z pendrive'a, bez internetu.
+Otwórz adres i zainstaluj:
 
-Na telefonie można zainstalować jak aplikację: otwórz stronę i wybierz
-„Zainstaluj aplikację" (Chrome) albo „Do ekranu początkowego" (Safari).
-Po pierwszym otwarciu całość siedzi w pamięci telefonu.
+- **Android** — Chrome, menu z trzema kropkami, „Zainstaluj aplikację".
+- **iPhone** — musi być Safari, przycisk udostępniania, „Do ekranu początkowego".
+
+Dostajesz ikonę na ekranie głównym i pełny ekran bez paska adresu. Po pierwszym
+otwarciu wszystko siedzi w pamięci telefonu, więc w sklepie bez zasięgu
+i w kuchni z telefonem w trybie samolotowym działa tak samo.
 
 ## Skąd te liczby
 
@@ -33,11 +37,19 @@ Liczby tutaj to wartości typowe, nie pomiar.
 Ściąga pomaga wybierać w sklepie i przy garnku. Nie zastępuje rozmowy
 z diabetologiem ani dietetykiem i nie służy do wyliczania dawek insuliny.
 
-## Pliki
+## Dla ciekawych, jak to zrobione
+
+Czysty HTML, CSS i JavaScript w jednym pliku, zero bibliotek i zero zapytań
+do sieci. Cała tabela to statyczny dokument, wyszukiwarka i sortowanie działają
+na tym, co już jest w przeglądarce. Nic nie wychodzi na zewnątrz — w pamięci
+przeglądarki zapisuje się jedna rzecz, wybrany tryb jasny albo ciemny.
 
 | plik | do czego |
 |---|---|
-| `index.html` | cała ściąga: treść, style i skrypt w jednym |
+| `index.html` | cała ściąga: treść, style i skrypt |
 | `manifest.webmanifest` | nazwa, ikona i tryb pełnoekranowy przy instalacji |
 | `sw.js` | pamięć offline |
 | `icon-*.png` | ikony na ekran główny |
+
+Żeby uruchomić lokalnie, wystarczy otworzyć `index.html` w przeglądarce.
+Instalacja i tryb offline wymagają adresu `https`, więc tego z dysku nie sprawdzisz.
