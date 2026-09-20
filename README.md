@@ -2,7 +2,7 @@
 
 **<https://demifury.github.io/Cooking-for-T1D/>**
 
-Ściąga do gotowania przy cukrzycy typu 1. Indeks glikemiczny, węglowodany i cukry
+Ściąga do gotowania przy cukrzycy typu 1. Indeks glikemiczny, węglowodany, cukry i tłuszcz
 dla ponad 300 produktów, przeliczone na 100 g lub 100 ml. Do tego sosy bez cukru,
 sposoby na obniżenie IG potrawy i czytanie etykiet.
 

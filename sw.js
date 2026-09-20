@@ -1,4 +1,4 @@
-var MAGAZYN='kuchnia-t1d-e35bb109';
+var MAGAZYN='kuchnia-t1d-4af25be1';
 var PLIKI=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable-512.png','./apple-touch-icon.png'];
 self.addEventListener('install',function(e){
   e.waitUntil(caches.open(MAGAZYN).then(function(c){return c.addAll(PLIKI);}).then(function(){return self.skipWaiting();}));

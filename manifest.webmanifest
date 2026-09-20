@@ -1,7 +1,7 @@
 {
   "name": "Kuchnia dla T1D",
   "short_name": "Kuchnia T1D",
-  "description": "Ściąga do gotowania przy cukrzycy typu 1: indeks glikemiczny, węglowodany i cukry na 100 g.",
+  "description": "Ściąga do gotowania przy cukrzycy typu 1: indeks glikemiczny, węglowodany, cukry i tłuszcz na 100 g.",
   "lang": "pl",
   "start_url": "./index.html",
   "scope": "./",
