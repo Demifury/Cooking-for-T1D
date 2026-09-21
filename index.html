@@ -436,5 +436,20 @@ ustawSort(kolumna);
 fchips.forEach(function(o){o.setAttribute('aria-pressed',String(o.dataset.lvl===lvl));});
 barh();render();
 </script>
-<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});</script>
+<script>
+if('serviceWorker' in navigator){
+  var bylSw=!!navigator.serviceWorker.controller,przeladowane=false;
+  navigator.serviceWorker.addEventListener('controllerchange',function(){
+    if(!bylSw||przeladowane)return;
+    przeladowane=true;location.reload();
+  });
+  addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js').then(function(rej){
+      document.addEventListener('visibilitychange',function(){
+        if(!document.hidden)rej.update();
+      });
+    }).catch(function(){});
+  });
+}
+</script>
 </html>
