@@ -431,6 +431,26 @@ document.addEventListener('click',function(e){
   if(i===0)return;
   [].slice.call(h.querySelectorAll('.sb')).forEach(function(b){b.tabIndex=-1;});
 });
+// Po przeladowaniu przez nowa wersje wracamy do tego samego widoku, ale od
+// gory - stara pozycja przewiniecia moglaby wypasc na innym produkcie.
+try{history.scrollRestoration='manual';}catch(e){}
+try{
+  var surowy=sessionStorage.getItem('t1d-widok');
+  sessionStorage.removeItem('t1d-widok');
+  var zapis=JSON.parse(surowy||'null');
+  if(zapis){
+    if(/^(ig|we|cu|tl)$/.test(zapis.kolumna))kolumna=zapis.kolumna;
+    if(zapis.mode==='produkty'||zapis.mode==='kuchnia'){
+      mode=zapis.mode;
+      modeBtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===mode));});
+    }
+    if(mode==='produkty'&&/^(all|g|y|r)$/.test(zapis.lvl))lvl=zapis.lvl;
+    if(typeof zapis.q==='string')q.value=zapis.q;
+  }
+}catch(e){}
+addEventListener('pagehide',function(){
+  try{sessionStorage.setItem('t1d-widok',JSON.stringify({q:q.value,mode:mode,lvl:lvl,kolumna:kolumna}));}catch(e){}
+});
 ustawSort(kolumna);
 
 fchips.forEach(function(o){o.setAttribute('aria-pressed',String(o.dataset.lvl===lvl));});
@@ -438,17 +458,13 @@ barh();render();
 </script>
 <script>
 if('serviceWorker' in navigator){
-  var bylSw=!!navigator.serviceWorker.controller,przeladowane=false;
-  navigator.serviceWorker.addEventListener('controllerchange',function(){
-    if(!bylSw||przeladowane)return;
-    przeladowane=true;location.reload();
-  });
   addEventListener('load',function(){
     navigator.serviceWorker.register('sw.js').then(function(rej){
       document.addEventListener('visibilitychange',function(){
-        if(!document.hidden)rej.update();
+        if(!document.hidden)rej.update().catch(function(){});
       });
     }).catch(function(){});
+    if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){});
   });
 }
 </script>
