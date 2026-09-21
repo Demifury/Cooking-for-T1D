@@ -1,4 +1,4 @@
-var MAGAZYN='kuchnia-t1d-bb7fc9e9';
+var MAGAZYN='kuchnia-t1d-243ad882';
 var PLIKI=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable-512.png','./apple-touch-icon.png'];
 var KONIECZNE=['./','./index.html'];
 

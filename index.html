@@ -454,7 +454,7 @@ addEventListener('pagehide',function(){
 ustawSort(kolumna);
 
 fchips.forEach(function(o){o.setAttribute('aria-pressed',String(o.dataset.lvl===lvl));});
-barh();render();
+render();barh();
 </script>
 <script>
 if('serviceWorker' in navigator){
